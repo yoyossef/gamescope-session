@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Fix intel color corruption
-# might come with some performance degradation but is better than a corrupted
-# color image
-export INTEL_DEBUG=norbc
-export mesa_glthread=true
-
 # Show VRR controls in Steam
 export STEAM_GAMESCOPE_VRR_SUPPORTED=1
 
@@ -111,8 +105,8 @@ export STEAM_MANGOAPP_HORIZONTAL_SUPPORTED=1
 export STEAM_GAMESCOPE_FANCY_SCALING_SUPPORT=1
 
 # Color management support
-# export STEAM_GAMESCOPE_COLOR_MANAGED=1
-export STEAM_GAMESCOPE_VIRTUAL_WHITE=1
+export STEAM_GAMESCOPE_COLOR_MANAGED=1
+#export STEAM_GAMESCOPE_VIRTUAL_WHITE=1
 
 # Set input method modules for Qt/GTK that will show the Steam keyboard
 export QT_IM_MODULE=steam
@@ -213,15 +207,6 @@ if [ -z "$GAMESCOPECMD" ] ; then
         --prefer-vk-device $VULKAN_ADAPTER \
         -R $socket -T $stats"
      fi
-
-else
-    # Add socket and stats read
-    if [ -z $VULKAN_ADAPTER ]; then
-        GAMESCOPECMD+=" --disable-color-management -R $socket -T $stats"
-    else
-        GAMESCOPECMD+=" --disable-color-management --prefer-vk-device $VULKAN_ADAPTER -R $socket -T $stats"
-    fi
-    
 fi
 
 # Workaround for Steam login issue while Steam client change propagates out of Beta
