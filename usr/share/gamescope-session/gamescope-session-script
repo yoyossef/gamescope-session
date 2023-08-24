@@ -189,6 +189,12 @@ if [ -z "$GAMESCOPECMD" ] ; then
         $CURSOR \
         -e \
         $RESOLUTION \
+	--hdr-enabled \
+        --hdr-itm-enable \
+        --hdr-itm-sdr-nits 100 \
+        --hdr-itm-target-nits 1000 \
+	--force-panel-type external \
+	--adaptive-sync \
         --xwayland-count 2 \
         -O *,eDP-1 \
         --default-touch-mode 4 \
@@ -200,6 +206,12 @@ if [ -z "$GAMESCOPECMD" ] ; then
         $CURSOR \
         -e \
         $RESOLUTION \
+	--hdr-enabled \
+        --hdr-itm-enable \
+        --hdr-itm-sdr-nits 100 \
+        --hdr-itm-target-nits 1000 \
+	--force-panel-type external \
+	--adaptive-sync \
         --xwayland-count 2 \
         -O *,eDP-1 \
         --default-touch-mode 4 \
