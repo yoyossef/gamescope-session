@@ -2,6 +2,7 @@
 
 # Show VRR controls in Steam
 export STEAM_GAMESCOPE_VRR_SUPPORTED=1
+export STEAM_DISPLAY_REFRESH_LIMITS=40,60,120
 
 # Some environment variables by default (taken from Deck session)
 export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
