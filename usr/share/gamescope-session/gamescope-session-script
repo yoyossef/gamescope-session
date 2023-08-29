@@ -184,42 +184,30 @@ if [ -z "$GAMESCOPECMD" ] ; then
         RESOLUTION="-W $SCREEN_WIDTH -H $SCREEN_HEIGHT"
     fi
     
-    if [ -z $VULKAN_ADAPTER ]; then
+    if [ -z $GAMESCOPE_ADDITIONAL_OPTIONS ]; then
         GAMESCOPECMD="/usr/bin/gamescope \
-        $CURSOR \
-        -e \
-        $RESOLUTION \
-	--hdr-enabled \
-        --hdr-itm-enable \
-        --hdr-itm-sdr-nits 100 \
-        --hdr-itm-target-nits 1000 \
-	--force-panel-type external \
-	--adaptive-sync \
-        --xwayland-count 2 \
-        -O *,eDP-1 \
-        --default-touch-mode 4 \
-        --hide-cursor-delay 3000 \
-        --fade-out-duration 200 \
-        -R $socket -T $stats"
-     else
+	$CURSOR \
+	-e \
+	$RESOLUTION \
+	--xwayland-count 2 \
+	-O *,eDP-1 \
+	--default-touch-mode 4 \
+	--hide-cursor-delay 3000 \
+	--fade-out-duration 200 \
+	-R $socket -T $stats"
+    else
         GAMESCOPECMD="/usr/bin/gamescope \
-        $CURSOR \
-        -e \
-        $RESOLUTION \
-	--hdr-enabled \
-        --hdr-itm-enable \
-        --hdr-itm-sdr-nits 100 \
-        --hdr-itm-target-nits 1000 \
-	--force-panel-type external \
-	--adaptive-sync \
-        --xwayland-count 2 \
-        -O *,eDP-1 \
-        --default-touch-mode 4 \
-        --hide-cursor-delay 3000 \
-        --fade-out-duration 200 \
-        --prefer-vk-device $VULKAN_ADAPTER \
-        -R $socket -T $stats"
-     fi
+	$CURSOR \
+	-e \
+	$RESOLUTION \
+	$GAMESCOPE_ADDITIONAL_OPTIONS \
+	--xwayland-count 2 \
+	-O *,eDP-1 \
+	--default-touch-mode 4 \
+	--hide-cursor-delay 3000 \
+	--fade-out-duration 200 \
+	-R $socket -T $stats"
+    fi
 fi
 
 # Workaround for Steam login issue while Steam client change propagates out of Beta
